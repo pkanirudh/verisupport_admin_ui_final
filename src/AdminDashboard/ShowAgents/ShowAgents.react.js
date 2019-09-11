@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Grid, Card } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import AgentHolder from '../AgentHolder/AgentHolder.react';
 import axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'
@@ -22,7 +22,6 @@ class ShowAgents extends React.Component {
         .then(res => {
           this.setState({ agents:res.data, loaded:true, });
         });
-        console.log(this.state.agents)
     }
 
     handleDelete = agentId => { //Code to delete an agent which will be passed to agent holder component
@@ -44,10 +43,29 @@ class ShowAgents extends React.Component {
 
       };
 
-      doDelete = agentId =>{
-        const newAgents = this.state.agents.filter(deletingAgent => deletingAgent.agentId !== agentId)
-        this.setState({agents: newAgents})
-        console.log("handleDelete called")
+      doDelete = userName =>{
+        axios.delete(`http://localhost:2020/agent-management-service/removeAgent/${userName}`).then(res=> {
+            if(res.status===200)
+            {
+                const newAgents = this.state.agents.filter(deletingAgent => deletingAgent.userName !== userName)
+                this.setState({agents: newAgents})
+                confirmAlert({
+                    title: "Success",
+                    message: "Agent deleted successfully",
+                    buttons: [
+                        {
+                            label: "Okay",
+                        }
+                    ]
+                })
+            }
+            else{
+
+            }
+            
+        }
+        );
+        
       }
       
 
@@ -59,7 +77,6 @@ class ShowAgents extends React.Component {
             
         }
         else{
-            console.log(this.state.agents)
             return (
                 <div >
                     <Card.Group >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Button, Grid, Header, Segment, Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 
 
@@ -13,7 +13,7 @@ const AgentHolder = (props) => {
                 <Card.Description>Username : {props.agent.userName}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-            <Button fluid basic negative onClick={() => props.onDelete(props.agent.agentId)}>
+            <Button fluid basic negative onClick={() => props.onDelete(props.agent.userName)}>
                 Remove Agent
             </Button>
             </Card.Content>

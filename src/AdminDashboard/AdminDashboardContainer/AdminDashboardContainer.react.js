@@ -1,8 +1,8 @@
 import React from 'react';
 import ShowAgents from '../ShowAgents/ShowAgents.react';
-import { Tab, Grid, Segment } from '../../../../verisupport_ui-master_lakshya/node_modules/semantic-ui-react';
+import { Tab, Grid } from 'semantic-ui-react';
 import AddAgent from '../AddAgent/AddAgent.react';
-import { Container } from 'semantic-ui-react';
+
 
 const panes = [
     {
@@ -18,7 +18,7 @@ const panes = [
 const AdminDashboardContainer = () => {
 
     return (
-        <Container>
+        
             <Grid centered>
                 <Grid.Column computer={12} mobile={15}>
                     
@@ -26,7 +26,7 @@ const AdminDashboardContainer = () => {
                     
                 </Grid.Column>
                 </Grid>
-        </Container>
+        
     );
 
 }
