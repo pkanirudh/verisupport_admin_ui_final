@@ -35,14 +35,13 @@ class LoginPage extends React.Component {
   onSubmit(e) {
     e.preventDefault();
 
-    
-      localStorage.setItem('adminName', this.state.login.adminName)
 
     axios
       .post(`http://localhost:6060/adminLogin`, this.state.login)
       .then(res => {
         this.setState({ success: res.data });
         if (this.state.success) {//On successful login redirected to admin dashboard
+          localStorage.setItem('adminName', this.state.login.adminName)
           this.props.history.push("/adminDashboard");
         } else {
           confirmAlert({//If entered wrong credentials

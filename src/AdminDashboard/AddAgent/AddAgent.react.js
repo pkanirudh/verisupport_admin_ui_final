@@ -19,9 +19,7 @@ class AddAgent extends React.Component {
         }
 
         this.onSubmit = this.onSubmit.bind(this);
-        this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleNameChange = this.handleNameChange.bind(this);
     }
 
     onSubmit(){ //Adds the agent if the Add Agent button is clicked
@@ -29,7 +27,6 @@ class AddAgent extends React.Component {
         var url= "http://localhost:2020/agent-management-service/addAgent"
         //"http://localhost:9001/agents"
         axios.post(url, this.state.agent).then(resp=>{
-                console.log("response"+resp.data)
                 if(resp.data===1){
                     confirmAlert({
                         title: "Agent added succesfully",
@@ -72,19 +69,11 @@ class AddAgent extends React.Component {
             });//url for adding agent
     }
 
-    handleChange(e){ //Update the state from the Password field
+    handleChange(e){ //Update the state from the different fields
         let target = e.target;
         let value = target.value;
         let name = target.name;
         this.setState(prevState =>( {agent:{...prevState.agent,[name]:value}}))
-    }
-
-    handleUsernameChange(e){ //Update the state from the Username field
-        this.setState({agentUsername: e.target.value})
-    }
-
-    handleNameChange(e){ //Update the state from the Agent's Name field
-        this.setState({agentName: e.target.value})
     }
 
     render() {

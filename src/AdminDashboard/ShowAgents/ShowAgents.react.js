@@ -81,8 +81,11 @@ class ShowAgents extends React.Component {
         if(!this.state.loaded){
             console.log(this.state.agents);
             console.log(this.state.loaded)
-          return(<div></div>);
+          return(<div>Couldn't fetch values</div>);
             
+        }
+        else if(!this.state.agents.length){
+            return(<div>There are no agents avaliable</div>);
         }
         else{
             return (
@@ -93,6 +96,7 @@ class ShowAgents extends React.Component {
                         })}
                         
                     </Card.Group>
+                    {/*  */}
                 </div>
             );
         }
