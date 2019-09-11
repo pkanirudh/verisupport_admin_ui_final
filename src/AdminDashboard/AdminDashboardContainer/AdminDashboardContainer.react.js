@@ -2,7 +2,7 @@ import React from 'react';
 import ShowAgents from '../ShowAgents/ShowAgents.react';
 import { Tab, Grid } from 'semantic-ui-react';
 import AddAgent from '../AddAgent/AddAgent.react';
-import HomeNav from '../../HeaderBar/HeaderBar.react';
+//import HomeNav from '../../HeaderBar/HeaderBar.react';
 
 
 const panes = [

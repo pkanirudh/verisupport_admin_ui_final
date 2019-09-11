@@ -14,11 +14,11 @@ export const Footer = () => {
 
                 <p className="footer-links">
                     
-                    <a href="#">Home</a><br></br>
+                    <a href="/">Home</a><br></br>
                     
-                    <a href="#">About</a><br></br>
+                    <a href="/">About</a><br></br>
                     
-                    <a href="#">Contact</a><br></br>
+                    <a href="/">Contact</a><br></br>
                 </p>
 
                 <p className="footer-company-name">Verizon India &copy; 2019</p>
@@ -57,10 +57,10 @@ export const Footer = () => {
 
                 <div className="footer-icons">
 
-                    <a href="#"><i className="fa fa-facebook"></i></a>
-                    <a href="#"><i className="fa fa-twitter"></i></a>
-                    <a href="#"><i className="fa fa-linkedin"></i></a>
-                    <a href="#"><i className="fa fa-github"></i></a>
+                    <a href="facebook.com"><i className="fa fa-facebook"></i></a>
+                    <a href="twitter.com"><i className="fa fa-twitter"></i></a>
+                    <a href="/linkedin.com"><i className="fa fa-linkedin"></i></a>
+                    <a href="/github.com"><i className="fa fa-github"></i></a>
 
                 </div>
 
