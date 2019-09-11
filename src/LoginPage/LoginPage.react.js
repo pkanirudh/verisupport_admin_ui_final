@@ -1,24 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   Button,
   Form,
   Grid,
   Header,
-  Message,
   Segment,
   Container
 } from "semantic-ui-react";
-import HomeNav from "../HeaderBar/HeaderBar.react";
+import { confirmAlert } from "react-confirm-alert";
 
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       login: {
-        userName: "",
-        password: ""
+        adminName: "",
+        adminPassword: ""
       },
       
       success: 0
@@ -38,24 +36,31 @@ class LoginPage extends React.Component {
     e.preventDefault();
 
     
-      localStorage.setItem('userName', this.state.login.userName)
+      localStorage.setItem('adminName', this.state.login.adminName)
 
     axios
-      .post(`http://localhost:4040/getCustomerByuserName`, this.state.login)
+      .post(`http://localhost:6060/adminLogin`, this.state.login)
       .then(res => {
-        // console.log(res);
-        // console.log(res.data);
         this.setState({ success: res.data });
-        if (this.state.success) {
+        if (this.state.success) {//On successful login redirected to admin dashboard
           this.props.history.push("/adminDashboard");
         } else {
-          console.log(" Wrong Credentials ");
+          confirmAlert({//If entered wrong credentials
+                    title: "Login Failed",
+                    message: "Invalid Login Credentials",
+                    buttons: [
+                        {
+                            label: "Okay",
+                        }
+                    ]
+                })
         }
       });
 
     
-    console.log(this.state.success);
+    console.log(this.state);
   }
+  
   render() {
 
     return (
@@ -67,22 +72,24 @@ class LoginPage extends React.Component {
               <Segment>
                 <Form size="large" onSubmit={this.onSubmit}>
                   <Form.Input
+                    required
                     fluid
                     icon="user secret"
                     iconPosition="left"
                     placeholder="Admin Username"
-                    name="userName"
-                    value={this.state.userName}
+                    name="adminName"
+                    value={this.state.login.adminName}
                     onChange={this.handleChange}
                   />
                   <Form.Input
+                    required
                     fluid
                     icon="lock"
                     iconPosition="left"
                     placeholder="Password"
-                    name="password"
+                    name="adminPassword"
                     type="password"
-                    value={this.state.password}
+                    value={this.state.login.adminPassword}
                     onChange={this.handleChange}
                   />
                   <Button color="blue" fluid size="large">

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-// const url = `http://localhost:420/agents`
+//test data: const url = `http://localhost:420/agents`
 const url = `http://localhost:2020/agent-management-service/getAllAgents`
 class ShowAgents extends React.Component {
     constructor(props) {

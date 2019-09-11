@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from '../../../../verisupport_ui-master_lakshya/node_modules/semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import axios from 'axios';
 import uuid from 'uuid';
 import { confirmAlert } from 'react-confirm-alert'
