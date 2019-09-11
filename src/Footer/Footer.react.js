@@ -1,39 +1,74 @@
-import React from 'react'
-import {
-  Container,
-  Grid,
-  Header,
-  List,
-  Segment,
-  Image,
-  Statistic,
-} from 'semantic-ui-react'
+import React from 'react';
+import './Footer.css';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap'
 
-const Footer = () => (
-  <div>
-    <Segment inverted className="footer" vertical style={{ padding: '5em 0em' }}>
-      <Container>
-        <Grid inverted stackable >
-          <Grid.Row>
-            <Grid.Column width={3} verticalAlign="middle">
-              <Image  src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='medium' circular/>
-            </Grid.Column>
-            <Grid.Column verticalAlign="middle" width={3}>
-              <Header content="VeriSupport" color="teal" as="h1"/>
-            </Grid.Column>
-            <Grid.Column verticalAlign="middle" width={7}>
-              <Header as='h4' inverted>
-                Description
-              </Header >
-              <p>
-                This application was developed as a project during the training for verizon new hires.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Segment>
-  </div>
-)
+export const Footer = () => {
+    return (
+        <div className="footer-distributed">
 
-export default Footer
+            <div className="footer-left">
+
+                <h3>Veri<span>Support</span></h3>
+
+                <p className="footer-links">
+                    
+                    <a href="#">Home</a><br></br>
+                    
+                    <a href="#">About</a><br></br>
+                    
+                    <a href="#">Contact</a><br></br>
+                </p>
+
+                <p className="footer-company-name">Verizon India &copy; 2019</p>
+            </div>
+
+            <div className="footer-center">
+            
+            <p>
+                <span>Contact Us</span>
+                </p>
+                
+                <div>
+                    <i className="fa fa-map-marker"></i>
+                    <p><span> SIDCO Industrial Estate, Guindy</span>Chennai, Tamil Nadu 600032</p>
+                </div>
+
+                <div>
+                    <i className="fa fa-phone"></i>
+                    <p>8056266354</p>
+                </div>
+
+                <div>
+                    <i className="fa fa-envelope"></i>
+                    <p><a href="mailto:support@company.com">verisupport@verizon.com</a></p>
+                </div>
+
+            </div>
+
+            <div className="footer-right">
+
+                <p className="footer-company-about">
+                    <span>About Us</span>
+                    VeriSupport is an application for customers to register and view their complaints regarding the services from Verizon which will be monitored by company agents. We aim to provide hassle free solutions to the problems faced ny our customers
+                    
+                </p>
+
+                <div className="footer-icons">
+
+                    <a href="#"><i className="fa fa-facebook"></i></a>
+                    <a href="#"><i className="fa fa-twitter"></i></a>
+                    <a href="#"><i className="fa fa-linkedin"></i></a>
+                    <a href="#"><i className="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+    );
+
+}
+
+export default Footer;
