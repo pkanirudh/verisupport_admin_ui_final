@@ -22,10 +22,9 @@ class ShowAgents extends React.Component {
         .then(res => {
           this.setState({ agents:res.data, loaded:true, });
         });
-    }
+    }//Getting all the agents from the database
 
-    handleDelete = agentId => { //Code to delete an agent which will be passed to agent holder component
-
+    handleDelete = agentId => { //Confirmation dialog while deleting an agent
         confirmAlert({
 
             title: "Confirm to remove Agent",
@@ -43,9 +42,10 @@ class ShowAgents extends React.Component {
 
       };
 
-      doDelete = userName =>{
+      doDelete = userName =>{//Code to delete an agent which will be passed to agent holder component
+
         axios.delete(`http://localhost:2020/agent-management-service/removeAgent/${userName}`).then(res=> {
-            if(res.status===200)
+            if(res.status===200)//If the delete was successful
             {
                 const newAgents = this.state.agents.filter(deletingAgent => deletingAgent.userName !== userName)
                 this.setState({agents: newAgents})
@@ -60,7 +60,15 @@ class ShowAgents extends React.Component {
                 })
             }
             else{
-
+                confirmAlert({//If delete wasn't successful
+                    title: "Failed",
+                    message: "Error occured while deleting the agent",
+                    buttons: [
+                        {
+                            label: "Okay",
+                        }
+                    ]
+                })
             }
             
         }
@@ -80,7 +88,7 @@ class ShowAgents extends React.Component {
             return (
                 <div >
                     <Card.Group >
-                        {this.state.agents.map((eachAgent, index) => {
+                        {this.state.agents.map((eachAgent, index) => {//Mapping the state and getting all agents from the database
                             return(<AgentHolder key={index} agent={eachAgent} onDelete={this.handleDelete}/>)
                         })}
                         

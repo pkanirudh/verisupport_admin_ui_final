@@ -4,7 +4,7 @@ import { Button, Card } from 'semantic-ui-react';
 
 
 const AgentHolder = (props) => {
-
+//Component to hold individual agents
     return (
         <Card>
             <Card.Content>
@@ -14,6 +14,7 @@ const AgentHolder = (props) => {
             </Card.Content>
             <Card.Content extra>
             <Button fluid basic negative onClick={() => props.onDelete(props.agent.userName)}>
+                {/* Gives the userName back to the parent ShowAgents to delete the Agent from the state which refereshes on it's own */}
                 Remove Agent
             </Button>
             </Card.Content>
